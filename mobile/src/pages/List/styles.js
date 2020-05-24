@@ -7,22 +7,12 @@ export default StyleSheet.create({
   
     logo: {
       height: 32,
-      resizeMode: "contain",
+      resizeMode: 'contain',
       alignSelf: 'center',
-      marginTop: 10
+      marginTop: 30
     },
 
-    button: {
-      height: 42,
-      backgroundColor: '#f05a5b',
-      justifyContent: 'center',
-      alignItems: 'center',
-      borderRadius: 2,
-    },
-  
-    buttonText: {
-      color: '#FFF',
-      fontWeight: 'bold',
-      fontSize: 16,
+    bold: {
+      fontWeight: 'bold'
     },
   });

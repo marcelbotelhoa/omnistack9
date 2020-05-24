@@ -6,20 +6,12 @@ import styles from './styles';
 import logo from '../../assets/logo.png';
 
 export default function Login({ navigation }) {
-  const [email, setEmail] = useState('alexbotelho1@hotmail.com');
-  const [techs, setTechs] = useState('ReactJS');
+  const [email, setEmail] = useState('marcelbotelho1@hotmail.com');
+  const [techs, setTechs] = useState('ReactJS, Node.js');
 
-  async function handleSubmit() {
-    const res = await api.post('/sessions', {
-      email
-    })
-
-    const { _id } = res.data;
-
-    await AsyncStorage.setItem('user', _id);
-    await AsyncStorage.setItem('techs', techs);
-
-    navigation.navigate('List');
+  async function handleLogout() {
+    await AsyncStorage.clear()
+    navigation.navigate('Login')
   }
 
   useEffect(() => {
@@ -29,10 +21,25 @@ export default function Login({ navigation }) {
       }
     })
   }, []);
+  
+  async function handleSubmit() {
+    const res = await api.post('/sessions', {
+      email
+    })
+  
+  const { _id } = res.data;
+
+    await AsyncStorage.setItem('user', _id);
+    await AsyncStorage.setItem('techs', techs);
+
+    navigation.navigate('List');
+  }
 
   return (
     <KeyboardAvoidingView enabled={Platform.OS === 'ios'} behavior="padding" style={styles.container}>
-      <Image source={logo} />
+      <TouchableOpacity onPress={handleLogout}>
+        <Image source={logo} />
+      </TouchableOpacity>
 
       <View style={styles.form}>
         <Text style={styles.label}>SEU E-MAIL *</Text>

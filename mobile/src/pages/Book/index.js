@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { SafeAreaView, Alert, TextInput, TouchableOpacity, AsyncStorage, Text } from 'react-native';
 
-import api from '../services/api';
+import api from '../../services/api';
+import styles from './styles';
 
 export default function Book({ navigation }) {
   const [date, setDate] = useState('');
