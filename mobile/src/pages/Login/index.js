@@ -6,8 +6,8 @@ import styles from './styles';
 import logo from '../../assets/logo.png';
 
 export default function Login({ navigation }) {
-  const [email, setEmail] = useState('marcelbotelho1@hotmail.com');
-  const [techs, setTechs] = useState('ReactJS, Node.js');
+  const [email, setEmail] = useState('');
+  const [techs, setTechs] = useState('');
 
   async function handleLogout() {
     await AsyncStorage.clear()
